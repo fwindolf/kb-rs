@@ -19,10 +19,9 @@ pub struct CheckResult {
 /// Extract file path-like strings from text.
 /// Matches patterns like `src/foo/bar.rs`, `*.ts`, `crates/kb/Cargo.toml`.
 fn extract_paths(text: &str) -> Vec<String> {
-    let re = Regex::new(
-        r#"(?:^|[\s`"',(])([a-zA-Z0-9_.*][\w.*/-]*\.[a-zA-Z0-9]+)(?:[\s`"',):]|$)"#
-    )
-    .unwrap();
+    let re =
+        Regex::new(r#"(?:^|[\s`"',(])([a-zA-Z0-9_.*][\w.*/-]*\.[a-zA-Z0-9]+)(?:[\s`"',):]|$)"#)
+            .unwrap();
 
     let mut paths = Vec::new();
     for cap in re.captures_iter(text) {
@@ -224,8 +223,10 @@ mod tests {
 
         let results = check_references(tmp.path(), Some("test")).unwrap();
         assert_eq!(results.len(), 1);
-        assert!(results[0]
-            .broken_refs
-            .contains(&"src/nonexistent/file.rs".to_string()));
+        assert!(
+            results[0]
+                .broken_refs
+                .contains(&"src/nonexistent/file.rs".to_string())
+        );
     }
 }

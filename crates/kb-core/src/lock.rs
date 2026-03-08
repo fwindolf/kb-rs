@@ -90,9 +90,8 @@ mod tests {
         let file = tmp.path().join("test.jsonl");
         fs::write(&file, "").unwrap();
 
-        let result: Result<()> = with_file_lock(&file, || {
-            Err(KbError::ValidationError("test".to_string()))
-        });
+        let result: Result<()> =
+            with_file_lock(&file, || Err(KbError::ValidationError("test".to_string())));
         assert!(result.is_err());
         assert!(!lock_path(&file).exists());
     }

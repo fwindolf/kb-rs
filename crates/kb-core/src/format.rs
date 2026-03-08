@@ -474,20 +474,19 @@ pub fn format_prime_output(domain_sections: &[String]) -> String {
     lines.push("```bash".to_string());
     lines.push("kb record <domain> --type convention \"description\"".to_string());
     lines.push(
-        "kb record <domain> --type failure --description \"...\" --resolution \"...\""
-            .to_string(),
+        "kb record <domain> --type failure --description \"...\" --resolution \"...\"".to_string(),
     );
-    lines.push(
-        "kb record <domain> --type decision --title \"...\" --rationale \"...\"".to_string(),
-    );
+    lines
+        .push("kb record <domain> --type decision --title \"...\" --rationale \"...\"".to_string());
     lines.push(
         "kb record <domain> --type pattern --name \"...\" --description \"...\" --files \"...\""
             .to_string(),
     );
-    lines.push("kb record <domain> --type reference --name \"...\" --description \"...\" --files \"...\"".to_string());
     lines.push(
-        "kb record <domain> --type guide --name \"...\" --description \"...\"".to_string(),
+        "kb record <domain> --type reference --name \"...\" --description \"...\" --files \"...\""
+            .to_string(),
     );
+    lines.push("kb record <domain> --type guide --name \"...\" --description \"...\"".to_string());
     lines.push("```".to_string());
     lines.push(String::new());
     lines.push("**Link evidence** to records when available:".to_string());
@@ -513,9 +512,7 @@ pub fn format_prime_output(domain_sections: &[String]) -> String {
         "kb search \"file locking\"              # multi-word queries ranked by relevance"
             .to_string(),
     );
-    lines.push(
-        "kb search \"atomic\" --domain cli        # limit to a specific domain".to_string(),
-    );
+    lines.push("kb search \"atomic\" --domain cli        # limit to a specific domain".to_string());
     lines.push("kb search \"ESM\" --type convention      # filter by record type".to_string());
     lines.push("kb search \"concurrency\" --tag safety   # filter by tag".to_string());
     lines.push("```".to_string());
@@ -549,12 +546,10 @@ pub fn format_prime_output(domain_sections: &[String]) -> String {
     );
     lines.push(String::new());
     lines.push("```".to_string());
-    lines.push(
-        "[ ] kb learn          # see what files changed — decide what to record".to_string(),
-    );
-    lines.push("[ ] kb record ...     # record learnings (see above)".to_string());
     lines
-        .push("[ ] kb sync           # validate, stage, and commit .kb/ changes".to_string());
+        .push("[ ] kb learn          # see what files changed — decide what to record".to_string());
+    lines.push("[ ] kb record ...     # record learnings (see above)".to_string());
+    lines.push("[ ] kb sync           # validate, stage, and commit .kb/ changes".to_string());
     lines.push("```".to_string());
     lines.push(String::new());
     lines.push("Do NOT skip this. Unrecorded learnings are lost for the next session.".to_string());
@@ -765,7 +760,10 @@ pub fn format_domain_expertise_xml(
 pub fn format_prime_output_xml(domain_sections: &[String]) -> String {
     let mut lines = vec!["<expertise>".to_string()];
     if domain_sections.is_empty() {
-        lines.push("  <empty>No expertise recorded yet. Use kb add and kb record to get started.</empty>".to_string());
+        lines.push(
+            "  <empty>No expertise recorded yet. Use kb add and kb record to get started.</empty>"
+                .to_string(),
+        );
     } else {
         lines.push(domain_sections.join("\n"));
     }
@@ -914,7 +912,10 @@ pub fn format_prime_output_plain(domain_sections: &[String]) -> String {
     lines.push("============================".to_string());
     lines.push(String::new());
     if domain_sections.is_empty() {
-        lines.push("No expertise recorded yet. Use `kb add <domain>` and `kb record` to get started.".to_string());
+        lines.push(
+            "No expertise recorded yet. Use `kb add <domain>` and `kb record` to get started."
+                .to_string(),
+        );
     } else {
         lines.push(domain_sections.join("\n\n"));
     }

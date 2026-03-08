@@ -103,11 +103,7 @@ pub fn init_kb_dir(cwd: &Path) -> Result<()> {
     // Add session/log files to .gitignore (local-only data)
     let gitignore_path = cwd.join(".gitignore");
     let gitignore_existing = fs::read_to_string(&gitignore_path).unwrap_or_default();
-    let ignore_lines = [
-        ".kb/sessions/",
-        ".kb/access.jsonl",
-        ".kb/changelog.jsonl",
-    ];
+    let ignore_lines = [".kb/sessions/", ".kb/access.jsonl", ".kb/changelog.jsonl"];
     let mut additions = String::new();
     for line in &ignore_lines {
         if !gitignore_existing.contains(line) {
