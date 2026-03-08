@@ -10,17 +10,10 @@ use kb_core::markers;
 const ONBOARD_CONTENT: &str = r#"## Knowledge
 This project uses kb to build knowledge across different domains in this project.
 At session start, use `kb prime` or `kb prime --files <path>` to regain the knowledge.
+After compaction or context clear, re-prime with `kb prime` to restore context.
 At session end, or when an important decision is made, use `kb learn` to remember how to persist knowledge.
 Use `kb record <domain> --type <convention|pattern|decision|failure|reference|guide> --description <...>` and `kb sync` to persist.
-Record WHY and WHICH approach, not implementation details readable from code. Use stable references (doc paths, module names), not line numbers.
-
-## Tasks
-This project uses bd (beads) for task tracking. Use it for all tasks (`bd create`, `bd ready`, `bd close`).
-Create beads BEFORE writing code, and always mark work you're tackling as in_progress.
-Use `bd show <id>` for detailed issue view with dependencies. If a task is blocked
-To create use `bd create --title="Summary" --description="Details" --type=task|bug|feature --priority=2` Priority: 0-4 or P0-P4 (0=critical, 2=medium, 4=backlog). NOT "high"/"medium"/"low"
-To close use `bd close <id1> <id2> ...` or `bd close <id> --reason="Explanation"`.
-Run `bd prime` for a full overview."#;
+Record WHY and WHICH approach, not implementation details readable from code. Use stable references (doc paths, module names), not line numbers."#;
 
 /// Auto-discovery order for target files.
 const TARGET_FILES: &[&str] = &[
