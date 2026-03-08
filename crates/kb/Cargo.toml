@@ -1,0 +1,33 @@
+[package]
+name = "kb"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Structured knowledge base for AI coding agents"
+
+[[bin]]
+name = "kb"
+path = "src/main.rs"
+
+[dependencies]
+kb-core = { path = "../kb-core" }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+anyhow = { workspace = true }
+owo-colors = { workspace = true }
+rust-mcp-sdk = { version = "0.8", default-features = false, features = ["server", "stdio", "macros"] }
+tokio = { version = "1", features = ["full"] }
+schemars = "0.8"
+async-trait = "0.1"
+
+[dev-dependencies]
+assert_cmd = { workspace = true }
+predicates = { workspace = true }
+tempfile = { workspace = true }
+pretty_assertions = { workspace = true }
+serde_json = { workspace = true }
+rust-mcp-sdk = { version = "0.8", default-features = false, features = ["client", "stdio"] }
+async-trait = "0.1"

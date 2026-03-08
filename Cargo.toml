@@ -1,15 +1,15 @@
 [workspace]
 resolver = "2"
-members = ["crates/mulch", "crates/mulch-core"]
+members = ["crates/kb", "crates/kb-core"]
 
 [workspace.package]
-version = "0.1.2"
+version = "0.2.0"
 edition = "2024"
 rust-version = "1.85"
 license = "MIT"
-repository = "https://github.com/fwindolf/mulch-rs"
-homepage = "https://github.com/fwindolf/mulch-rs"
-description = "Structured expertise management for AI coding agents"
+repository = "https://github.com/fwindolf/kb"
+homepage = "https://github.com/fwindolf/kb"
+description = "Structured knowledge base for AI coding agents"
 
 [workspace.dependencies]
 # Serialization
